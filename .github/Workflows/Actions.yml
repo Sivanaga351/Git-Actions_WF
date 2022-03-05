@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
   runs-on: ubuntu-latest
-  steps: 
+  steps:
     - name: Git Actions
       uses: actions/checkout@v1
     - name: List Files After Checkout
