@@ -1,21 +1,33 @@
 name: Actions
 
 on: 
-  repository_dispatch:
-    types: [build]
+  push:
+    branches:
+      - master:
+      - "feature/*"  #match feature/featA, feature/featB,
+                     # Does not match feature/feat/a,
+      - "feature/**"
+      - "!feature/featc" #
+    tags: 
+      - v1.*
+    paths:
+      - "**.js"  
+      - "!filename.js"
+  # repository_dispatch:
+  #   types: [build]
   # schedule:
   #   - cron: "0/5 * * * *"
   #   - cron: "0/6 * * * *"
-  push:
-  pull_request: 
-    types: [closed, reopened, assigned, opened ]
+  # push:
+  # pull_request: 
+  #   types: [closed, reopened, assigned, opened ]
 
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Payload
-        run: echo $"{{github.event.Client_Payload.env}}"
+      - name: client Payload
+        run: echo $"{{github.event.client_payload.env}}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: check for pull request
