@@ -3,8 +3,8 @@ name: Actions
 on: [push, pull_request]
 
 jobs:
-  build:
-  runs-on: ubuntu-latest
+  run-github-actions:
+    runs-on: ubuntu-latest
   steps:
     - name: Checkout
       uses: actions/checkout@v1
