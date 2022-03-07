@@ -1,9 +1,9 @@
 name: Actions
 
-on: 
+on:
   push:
     branches:
-      - master:
+      - "master"
       - "feature/*"  #match feature/featA, feature/featB,
                      # Does not match feature/feat/a,
       - "feature/**"
