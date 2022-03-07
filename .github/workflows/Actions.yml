@@ -14,6 +14,8 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Payload
+        run: echo $"{{github.event.Client_Payload.env}}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: check for pull request
@@ -23,3 +25,4 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
+          echo $"{{GITHUB.token}}"
