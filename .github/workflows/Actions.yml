@@ -1,0 +1,23 @@
+name: Actions
+
+on: 
+  schedule:
+    - cron: "0/5 * * * *"
+    - cron: "0/6 * * * *"
+  #push:
+  pull_request: 
+    types: [closed, reopened, assigned, opened ]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: check for pull request
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
