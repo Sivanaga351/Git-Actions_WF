@@ -1,0 +1,14 @@
+name: Actions
+
+on: [push, pull_request]
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: check for pull request
+      run: |
+        pwd
+        ls -a
+        echo $GITHUB_SHA
+        echo $GITHUB_REPOSITORY
+        echo $GITHUB_WORKSPACE
