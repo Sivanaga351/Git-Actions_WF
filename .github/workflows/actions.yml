@@ -6,6 +6,8 @@ jobs:
   build:
   runs-on: ubuntu-latest
   steps:
+    - name: Checkout
+      uses: actions/checkout@v1
     - name: check for pull request
       run: |
         pwd
