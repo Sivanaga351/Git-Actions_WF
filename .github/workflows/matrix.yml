@@ -5,7 +5,7 @@ on: push
 jobs:
   node-versions:
     runs-on: ubuntu-latest
-      steps:
+    steps:
         - name: log node version
           run: node -v
         - uses: actions/setup-node@v1
