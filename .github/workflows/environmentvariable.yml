@@ -11,6 +11,25 @@ jobs:
     permissions:
       issues: write 
     steps:
+      - name: Pushing random file
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "Sivanaga@gmail.com"
+          git config --global user.name "Sivanaga@"
+          git fetch
+          git Checkout master
+          git branch --set-upstream-to=origin/master
+          git pull
+          ls -a
+          echo $RANDOM >> random.txt
+          ls -a
+          git add -a
+          git commit -m "random file"
+          git push
+
       - name: Create issue using REST API
         run: |
           curl --request POST \
