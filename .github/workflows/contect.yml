@@ -1,7 +1,17 @@
-name: Context testing
+name: Context 
 on: push
 
 jobs:
+  functions:
+    runs-on: ubuntu-16.04
+    steps:
+      - name: dump
+        run: |
+          echo ${{ contains('hello','ll')}}
+          echo ${{ startswith('hello','he')}}
+          echo ${{ endswith('hello','lo')}}
+          echo ${{ format('Hello {0} {1} {2}','world','!', '!')}}
+  
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
@@ -11,7 +21,7 @@ jobs:
       - name: Dump job context
         run: echo '${{ toJSON(job) }}'
       - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
+         run: echo '${{ toJSON(steps) }}'
       - name: Dump runner context
         run: echo '${{ toJSON(runner) }}'
       - name: Dump strategy context
