@@ -26,8 +26,8 @@ jobs:
           ls -a
           echo $RANDOM >> random.txt
           ls -a
-          git add -a
-          git commit -m "random file"
+          git add -A
+          git commit -m"random file"
           git push
 
       - name: Create issue using REST API
